@@ -110,6 +110,42 @@
   border-radius: 10px;
   min-height: 100px;
   transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.note-card-text {
+  font-family: var(--typo-13-family);
+  font-size: var(--typo-13-size);
+  font-weight: var(--typo-13-weight);
+  line-height: var(--typo-13-line-height);
+  color: var(--typo-13-color);
+  margin: 0;
+}
+
+.add-button-container {
+  position: fixed;
+  right: 24px;
+  bottom: 46px;
+  width: 70px;
+  height: 70px;
+  background-color: var(--color-252525);
+  border-radius: 50%;
+  box-shadow: var(--shadow-0), var(--shadow-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.add-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.add-button-container:hover {
+  transform: scale(1.05);
 }
 
 .note-card:hover {

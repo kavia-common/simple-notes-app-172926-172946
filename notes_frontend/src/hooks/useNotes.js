@@ -9,6 +9,42 @@ export const useNotes = () => {
     const storedNotes = localStorage.getItem('notes');
     if (storedNotes) {
       setNotes(JSON.parse(storedNotes));
+    } else {
+      // Initialize with sample notes if empty
+      const sampleNotes = [
+        {
+          id: 1,
+          title: "Book Review : The Design of Everyday Things by Don Norman",
+          color: "var(--color-ff9e9e)",
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 2,
+          title: "Animes produced by Ufotable",
+          color: "var(--color-91f48f)",
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 3,
+          title: "Mangas planned to read",
+          color: "var(--color-fff599)",
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 4,
+          title: "Awesome tweets collection",
+          color: "var(--color-9effff)",
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 5,
+          title: "List of free & open source apps",
+          color: "var(--color-b69cff)",
+          createdAt: new Date().toISOString()
+        }
+      ];
+      setNotes(sampleNotes);
+      localStorage.setItem('notes', JSON.stringify(sampleNotes));
     }
   }, []);
 
