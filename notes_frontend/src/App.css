@@ -1,4 +1,99 @@
-/* Additional styles for React components */
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');
+
+/* Root variables */
+:root {
+  /* Colors */
+  --color-252525: #252525;
+  --color-ff9e9e: #ff9e9e;
+  --color-000000: #000000;
+  --color-91f48f: #91f48f;
+  --color-fff599: #fff599;
+  --color-ffffff: #ffffff;
+  --color-3b3b3b: #3b3b3b;
+  --color-9effff: #9effff;
+  --color-b69cff: #b69cff;
+  --color-fd99ff: #fd99ff;
+  
+  /* Typography */
+  --typo-13-family: 'Nunito', sans-serif;
+  --typo-13-size: 25px;
+  --typo-13-weight: 400;
+  --typo-13-line-height: 34.1px;
+  --typo-13-color: var(--color-000000);
+
+  --typo-14-family: 'Nunito', sans-serif;
+  --typo-14-size: 43px;
+  --typo-14-weight: 600;
+  --typo-14-line-height: 58.65px;
+  --typo-14-color: var(--color-ffffff);
+
+  /* Spacing */
+  --spacing-10: 10px;
+  --spacing-15: 15px;
+  --spacing-20: 20px;
+  --spacing-30: 30px;
+
+  /* Shadows */
+  --shadow-0: -5px 0px 10px 0px rgba(0,0,0,1);
+  --shadow-1: 0px 5px 10px 0px rgba(0,0,0,1);
+}
+
+/* Home screen */
+.home-screen {
+  position: relative;
+  width: 414px;
+  height: 1100px;
+  background-color: var(--color-252525);
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Hero text */
+.hero-text {
+  position: absolute;
+  left: 24px;
+  top: 47px;
+  font-family: var(--typo-14-family);
+  font-size: var(--typo-14-size);
+  font-weight: var(--typo-14-weight);
+  line-height: var(--typo-14-line-height);
+  color: var(--typo-14-color);
+  z-index: 1;
+  margin: 0;
+}
+
+/* Action buttons */
+.action-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-3b3b3b);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 2;
+}
+
+.search-button {
+  right: 95px;
+  top: 51px;
+}
+
+.info-button {
+  right: 24px;
+  top: 51px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
 .notes-list {
   position: relative;
   margin-top: 120px;

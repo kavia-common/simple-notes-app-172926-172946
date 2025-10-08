@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // PUBLIC_INTERFACE
-const NoteEditor = ({ note, onSave, onClose }) => {
+const NoteEditor = ({ note, onSave, onClose, onDelete, showConfirmDelete, setShowConfirmDelete }) => {
   const [title, setTitle] = useState('');
 
   useEffect(() => {
@@ -79,6 +79,22 @@ const NoteEditor = ({ note, onSave, onClose }) => {
             >
               Cancel
             </button>
+            {note && (
+              <button
+                type="button"
+                onClick={() => setShowConfirmDelete(true)}
+                style={{
+                  padding: '8px 16px',
+                  border: 'none',
+                  borderRadius: '5px',
+                  backgroundColor: 'var(--color-ff9e9e)',
+                  color: 'var(--color-ffffff)',
+                  cursor: 'pointer',
+                }}
+              >
+                Delete
+              </button>
+            )}
             <button
               type="submit"
               style={{
@@ -95,6 +111,58 @@ const NoteEditor = ({ note, onSave, onClose }) => {
           </div>
         </form>
       </div>
+      {showConfirmDelete && (
+        <div style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: 'var(--color-252525)',
+          padding: '20px',
+          borderRadius: '10px',
+          zIndex: 200,
+          textAlign: 'center',
+        }}>
+          <p style={{
+            color: 'var(--color-ffffff)',
+            marginBottom: '20px',
+          }}>
+            Are you sure you want to delete this note?
+          </p>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '10px',
+          }}>
+            <button
+              onClick={() => setShowConfirmDelete(false)}
+              style={{
+                padding: '8px 16px',
+                border: 'none',
+                borderRadius: '5px',
+                backgroundColor: 'var(--color-3b3b3b)',
+                color: 'var(--color-ffffff)',
+                cursor: 'pointer',
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              onClick={onDelete}
+              style={{
+                padding: '8px 16px',
+                border: 'none',
+                borderRadius: '5px',
+                backgroundColor: 'var(--color-ff9e9e)',
+                color: 'var(--color-ffffff)',
+                cursor: 'pointer',
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -108,6 +176,9 @@ NoteEditor.propTypes = {
   }),
   onSave: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  showConfirmDelete: PropTypes.bool.isRequired,
+  setShowConfirmDelete: PropTypes.func.isRequired,
 };
 
 export default NoteEditor;

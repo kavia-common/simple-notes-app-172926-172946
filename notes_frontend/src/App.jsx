@@ -9,6 +9,16 @@ function App() {
   const { notes, addNote, updateNote, deleteNote } = useNotes();
   const [selectedNote, setSelectedNote] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+
+  const handleDeleteNote = () => {
+    if (selectedNote) {
+      deleteNote(selectedNote.id);
+      setSelectedNote(null);
+      setIsEditing(false);
+      setShowConfirmDelete(false);
+    }
+  };
 
   const handleAddNote = () => {
     setSelectedNote(null);
@@ -39,11 +49,11 @@ function App() {
       <h1 className="hero-text">Notes</h1>
 
       <div className="action-button search-button">
-        <img src="/figmaimages/figma_image_111_12.png" alt="Search" className="icon" />
+        <img src="/assets/figma_image_111_12.png" alt="Search" className="icon" />
       </div>
 
       <div className="action-button info-button">
-        <img src="/figmaimages/figma_image_113_14.png" alt="Info" className="icon" />
+        <img src="/assets/figma_image_113_14.png" alt="Info" className="icon" />
       </div>
 
       <NotesList
@@ -62,7 +72,7 @@ function App() {
           }
         }}
       >
-        <img src="/figmaimages/figma_image_181_116.png" alt="Add note" className="add-icon" />
+        <img src="/assets/figma_image_181_116.png" alt="Add note" className="add-icon" />
       </div>
 
       {isEditing && (
@@ -70,6 +80,9 @@ function App() {
           note={selectedNote}
           onSave={handleSaveNote}
           onClose={handleCloseEditor}
+          onDelete={handleDeleteNote}
+          showConfirmDelete={showConfirmDelete}
+          setShowConfirmDelete={setShowConfirmDelete}
         />
       )}
     </div>
