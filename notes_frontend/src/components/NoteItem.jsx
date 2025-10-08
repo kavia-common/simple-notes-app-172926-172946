@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/NoteItem.css';
 
 // PUBLIC_INTERFACE
 const NoteItem = ({ note, onClick }) => {

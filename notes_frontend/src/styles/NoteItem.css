@@ -1,0 +1,25 @@
+.note-card {
+  position: relative;
+  width: 365px;
+  margin: 20px auto;
+  padding: 20px;
+  min-height: 100px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.note-card:hover {
+  transform: scale(1.02);
+}
+
+.note-card-text {
+  font-family: var(--typo-13-family);
+  font-size: var(--typo-13-size);
+  font-weight: var(--typo-13-weight);
+  line-height: var(--typo-13-line-height);
+  color: var(--typo-13-color);
+  margin: 0;
+  word-break: break-word;
+}

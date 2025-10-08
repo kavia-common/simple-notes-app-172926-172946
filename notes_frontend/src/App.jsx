@@ -71,6 +71,7 @@ function App() {
             handleAddNote();
           }
         }}
+        aria-label="Add new note"
       >
         <img src="/assets/figma_image_181_116.png" alt="Add note" className="add-icon" />
       </div>

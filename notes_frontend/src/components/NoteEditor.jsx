@@ -33,7 +33,7 @@ const NoteEditor = ({ note, onSave, onClose, onDelete, showConfirmDelete, setSho
       zIndex: 100,
     }}>
       <div style={{
-        backgroundColor: note ? note.color : 'var(--color-ff9e9e)',
+        backgroundColor: note ? note.color : '#ff9e9e',
         padding: '20px',
         borderRadius: '10px',
         width: '90%',

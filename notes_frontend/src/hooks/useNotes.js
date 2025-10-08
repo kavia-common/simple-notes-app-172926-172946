@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getRandomNoteColor } from '../utils/colors';
 
 // PUBLIC_INTERFACE
 export const useNotes = () => {
@@ -15,31 +16,31 @@ export const useNotes = () => {
         {
           id: 1,
           title: "Book Review : The Design of Everyday Things by Don Norman",
-          color: "var(--color-ff9e9e)",
+          color: "#ff9e9e",
           createdAt: new Date().toISOString()
         },
         {
           id: 2,
           title: "Animes produced by Ufotable",
-          color: "var(--color-91f48f)",
+          color: "#91f48f",
           createdAt: new Date().toISOString()
         },
         {
           id: 3,
           title: "Mangas planned to read",
-          color: "var(--color-fff599)",
+          color: "#fff599",
           createdAt: new Date().toISOString()
         },
         {
           id: 4,
           title: "Awesome tweets collection",
-          color: "var(--color-9effff)",
+          color: "#9effff",
           createdAt: new Date().toISOString()
         },
         {
           id: 5,
           title: "List of free & open source apps",
-          color: "var(--color-b69cff)",
+          color: "#b69cff",
           createdAt: new Date().toISOString()
         }
       ];
@@ -77,18 +78,6 @@ export const useNotes = () => {
   // PUBLIC_INTERFACE
   const deleteNote = (id) => {
     setNotes(prevNotes => prevNotes.filter(note => note.id !== id));
-  };
-
-  // Helper function to get random note color from Figma design
-  const getRandomNoteColor = () => {
-    const colors = [
-      'var(--color-ff9e9e)',  // Pink
-      'var(--color-91f48f)',  // Green
-      'var(--color-fff599)',  // Yellow
-      'var(--color-9effff)',  // Blue
-      'var(--color-b69cff)',  // Purple
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
   };
 
   return {
